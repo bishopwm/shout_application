@@ -43,7 +43,7 @@ Once logged in, they can send "Shouts".
  - A Shout must be related to a User
  - A User can have many Shouts but a Shout can only have one User. 
  - Make sure you save the "user_id" for each shout.
- - Add the necessary validations 
+ - Add the necessary validations
 
 Create the main page
  - it should have a form to create Shouts

@@ -34,12 +34,26 @@ end
 
 #------------------- Sinatra Stuff ------------------------------
 last_id ||= 0
-users ||= {}
+# users ||= {}
 
 get '/' do
-  @users = users
+	erb :signup
+end
+
+post '/signup' do
+	name = params[:name]
+	handle = params[:handle]
+	password = params[:password]
+  user=User.create(name: name, handle: handle, password: password)
+  session[:id] = user.id
+	redirect '/home'
+end
+
+
+get '/home' do
+  # @users = users
   if session[:id]
-    @current_user = users[session[:id]]
+    @current_user = User.find(session[:id])
   end
 
   erb :shouter1
@@ -51,7 +65,7 @@ post '/make_a_shout' do
   last_id += 1
   users[last_id] = name, handle
   session[:id] = last_id
-  redirect '/'
+  redirect '/home'
 end
 #------------------- ^Sinatra Stuff^ ------------------------------
 

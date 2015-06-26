@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <h1>SHOUT</h1>
+    <h2>Type in your shout and handle here:</h2>
+        <form method="post" action="/shouts">
+           <label for="shout">Your SHOUT: </label>
+           <input type="text" id="shout" name="shout" />
+           <label for="namel">Your Username/Handle: </label>
+           <input type="text" id="handle" name="handle" />
+        
+           <input type="submit" value="Sign Up">
+        </form>
+
+    <% if @users.size > 0 %>
+      <h2>Shouts and Users</h2>
+      <ul>
+        <% @users.each do |user| %>
+          <li><%= user.handle %>, <%= user.shout %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <h2> No "SHOUTS" yet </h2>
+    <% end %>
+
+   <!--  <% if @current_student %>
+      Hello, <%= @current_student %>!
+    <% else %> -->
+      
+    <% end %>
+  </body>
+</html>
+

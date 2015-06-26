@@ -1,0 +1,20 @@
+<html>
+<body>
+  <h1>Shout!</h1>
+    <ul>
+      <% @users.each do |id, user| %>
+        <li><%= user %></li>
+      <% end %>
+    </ul>
+      <h2>Type in your Shout and your user handle:</h2>
+        <form action="/make_a_shout" method="post">
+          <label for="shout">Your Shout </label>
+          <input id = "name" name="name" />
+          <label for="handle">Your Handle </label>
+          <input id="handle" name="handle" />
+          <input type="submit" />
+        </form>
+</body>
+</html>
+
+
